@@ -21,6 +21,7 @@
         <thead class="bg-info text-white">
             <tr>
                 <th class="text-center">NO</th>
+                <th>Foto Profil</th>
                 <th>NAMA</th>
                 <th>EMAIL</th>
                 <th>STATUS</th>
@@ -32,6 +33,16 @@
             @foreach($customers as $customer)
             <tr>
                 <td class="text-center">{{ $no }}</td>
+                <td class="text-center">
+                    @if($customer->gambar)
+                        <img src="{{ asset('umum/images/' . $customer->gambar) }}" 
+                            class="img img-fluid img-thumbnail" 
+                            alt="Gambar {{ $customer->name }}" 
+                            style="max-width: 100px;">
+                    @else
+                        <span class="badge badge-warning">Tidak ada</span>
+                    @endif
+                </td>
                 <td>{{ $customer->name }}</td>
                 <td>{{ $customer->email }}</td>
                 <td>{{ $customer->status }}</td>
