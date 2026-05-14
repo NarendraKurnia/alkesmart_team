@@ -8,7 +8,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Icon web -->
-  <link rel="icon" href="{{asset('admin/dist/img/Logo_PLN.png') }}">
+  <link rel="icon" href="{{asset('umum/images//logo-alkesmart.jpg') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
    <!-- SweetAlert2 -->

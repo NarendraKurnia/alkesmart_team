@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
     <!-- Icon web -->
-    <link rel="icon" href="{{asset('umum/images/logo-arumbromo.png') }}">
+    <link rel="icon" href="{{asset('umum/images/logo-alkesmart.png') }}">
     
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 

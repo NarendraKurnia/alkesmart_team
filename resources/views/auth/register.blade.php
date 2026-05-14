@@ -38,12 +38,12 @@
 </head>
 <body class="min-h-screen flex">
 <div class="hidden md:flex md:w-11/12 relative">
-    <img src="{{ asset('umum/images/icon-bromo2.jpg') }}"
+    <img src="{{ asset('umum/images/bg-depan.png') }}"
          alt="Background"
          class="w-full h-full object-cover">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-10">
-      <h1 class="text-4xl font-bold text-white mb-2">Welcome to Arum Bromo Villa</h1>
-      <p class="text-white text-lg">Register to access your bookings, exclusive deals, and enjoy a faster checkout.</p>
+      <h1 class="text-4xl font-bold text-white mb-2">Welcome to Alkesmart Marketing Team</h1>
+      <p class="text-white text-lg">Register to access your working report</p>
     </div>
   </div>
 
@@ -53,9 +53,9 @@
       <a href="{{ route('home.index') }}">
         <i class="fa fa-arrow-left text-m mr-96 text-gray-700 mb-4" aria-hidden="true"></i>
       </a>
-      <h2 class="text-2xl font-bold mb-2">Ready to Plan Your Next Stay?</h2>
+      <h2 class="text-2xl font-bold mb-2">Register</h2>
       <p class="text-gray-500 mb-6">
-        Sign in to access your account and explore our latest offers.
+        Register to get your account.
       </p>
       
       <!-- Form -->

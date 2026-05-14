@@ -1,16 +1,16 @@
 @include('layout.head') 
 @include('layout.header')
 
-<main class="relative min-h-screen overflow-hidden pt-12">
+<main class="relative min-h-screen overflow-hidden pt-20">
 
   <!-- Background -->
-  <div class="absolute inset-0">
+  <div class="absolute inset-0 pt-24">
     <img 
-      src="{{ asset('umum/images/bg-alkes.jpg') }}" 
+      src="{{ asset('umum/images/bg-depan.png') }}" 
       class="w-full h-full object-cover"
       alt="Background"
     >
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-700/80 to-blue-500/70"></div>
+    
   </div>
 
   <!-- Content -->
@@ -20,10 +20,10 @@
     <div>
       <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
         Sistem Absensi Marketing <br>
-        <span class="text-blue-200">Alkesmart</span>
+        <span class="text-black">Alkesmart</span>
       </h1>
 
-      <p class="text-sm md:text-base text-blue-200 mb-8 leading-relaxed">
+      <p class="text-sm md:text-base text-black mb-8 leading-relaxed">
         Sistem ini membantu pencatatan absensi, monitoring aktivitas lapangan, serta integrasi laporan secara real-time. 
       </p>
 
@@ -35,16 +35,6 @@
       </div>
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div class="relative flex justify-center">
-      <img 
-        src="{{ asset('umum/images/mockup-app.png') }}" 
-        class="w-[280px] md:w-[350px] drop-shadow-2xl"
-        alt="App Preview"
-      >
-
-      <!-- dekorasi -->
-      <div class="absolute -bottom-10 w-72 h-20 bg-white/20 blur-2xl rounded-full"></div>
     </div>
 
   </div>

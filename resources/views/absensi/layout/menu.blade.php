@@ -2,8 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{asset('dasbor') }}" class="brand-link">
-      <img src="{{asset('dist/img/Logo_PLN.png') }}" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">IN-SECURE Administrator</span>
+      <img src="{{asset('umum/images/logo-alkesmart.png') }}" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Daily Report</span>
     </a>
 
     <!-- Sidebar -->
