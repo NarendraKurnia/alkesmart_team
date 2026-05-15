@@ -12,7 +12,7 @@
         
         <!-- Logo responsive -->
         <img 
-            src="{{ asset('umum/images/logo-arumbromo.png') }}" 
+            src="{{ asset('umum/images/logo-alkesmart.png') }}" 
             alt="Arum Bromo Logo" 
             class="h-8 md:h-12 lg:h-16 w-auto object-contain"
         >

@@ -14,7 +14,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Icon Web -->
-  <link rel="icon" href="{{asset('umum/images/logo-arumbromo.png') }}">
+  <link rel="icon" href="{{asset('umum/images/logo-alkesmart.png') }}">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
   <!-- Theme style -->

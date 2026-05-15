@@ -4,10 +4,10 @@
 <main class="relative min-h-screen overflow-hidden pt-20">
 
   <!-- Background -->
-  <div class="absolute inset-0 pt-24">
+  <div class="absolute inset-0 ">
     <img 
       src="{{ asset('umum/images/bg-depan.png') }}" 
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover pt-16"
       alt="Background"
     >
     
