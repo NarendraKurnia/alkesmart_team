@@ -150,6 +150,7 @@ tinymce.init({
   });
 </script>
 
+
 <?php 
 $sek  = date('Y');
 $awal = $sek-100;
@@ -195,91 +196,7 @@ $awal = $sek-100;
 </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('/security/dashboard/data')
-        .then(response => response.json())
-        .then(data => {
-            // Total shift
-            document.getElementById('shiftMasuk').textContent = data.total_shift_masuk;
-            document.getElementById('shiftSelesai').textContent = data.total_shift_selesai;
 
-            // Catatan
-            document.getElementById('catatan').textContent = data.catatan_terakhir ?? 'Tidak ada catatan.';
-
-            // Petugas shift
-            const petugasList = document.getElementById('petugasList');
-            petugasList.innerHTML = ''; // Clear loading
-
-            if (data.petugas_shift.length > 0) {
-                data.petugas_shift.forEach(item => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <strong>${item.shift}</strong> (${item.tanggal_shift}):
-                        ${item.nama_security_1 ?? '-'}, ${item.nama_security_2 ?? '-'}, ${item.nama_security_3 ?? '-'}
-                    `;
-                    petugasList.appendChild(li);
-                });
-            } else {
-                petugasList.innerHTML = '<li>Tidak ada data shift hari ini.</li>';
-            }
-
-            // (Opsional) render grafik shift...
-        });
-});
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const nama3 = document.getElementById("nama_security_3");
-        const jam3 = document.getElementById("jam_kehadiran_3");
-
-        // Fungsi untuk ambil waktu lokal sekarang dalam format "HH:MM"
-        function getCurrentTime() {
-            const now = new Date();
-            return now.toTimeString().slice(0, 5);
-        }
-
-        // Event saat user mengetik nama
-        nama3.addEventListener("input", function () {
-            if (nama3.value.trim() !== "") {
-                // Hanya set jam & disable jika jam masih kosong
-                if (jam3.value === "") {
-                    jam3.disabled = false; // Aktifkan sejenak
-                    jam3.value = getCurrentTime(); // Isi otomatis
-                    jam3.disabled = true; // Langsung disable kembali
-                }
-            } else {
-                jam3.disabled = true;
-                jam3.value = ""; // Kosongkan jika nama dihapus
-            }
-        });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const namaSecurity3 = document.getElementById('nama_security_3');
-        const jamSelesai3 = document.getElementById('jam_selesai_3');
-
-        function setJamSelesai() {
-            if (namaSecurity3.value.trim() === '') {
-                // Kosongkan jam selesai 3 jika nama security 3 kosong
-                jamSelesai3.value = '';
-            } else {
-                // Jika ada isian, isi jam selesai 3 dengan waktu sekarang (HH:mm)
-                const now = new Date();
-                const hours = now.getHours().toString().padStart(2, '0');
-                const minutes = now.getMinutes().toString().padStart(2, '0');
-                jamSelesai3.value = `${hours}:${minutes}`;
-            }
-        }
-
-        // Jalankan saat load halaman (supaya nilai otomatis benar)
-        setJamSelesai();
-
-        // Jalankan tiap kali input nama security 3 berubah
-        namaSecurity3.addEventListener('input', setJamSelesai);
-    });
-</script>
 
 <script>
 function togglePassword(id) {

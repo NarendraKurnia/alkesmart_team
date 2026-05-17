@@ -9,9 +9,13 @@ use App\Http\Controllers\Adminteam\Shiftmasuka;
 use App\Http\Controllers\Adminteam\Shiftselesaia;
 use App\Http\Controllers\Absensi\HomeController;
 use App\Http\Controllers\Absensi\AuthController;
+use App\Http\Controllers\Absensi\DealingController;
 use App\Http\Controllers\Absensi\ShiftmasukController;
 use App\Http\Controllers\Absensi\ShiftselesaiController;
+use App\Http\Controllers\Adminteam\DashboardController;
 
+// dashboard
+Route::get('adminteam/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 //halaman login admin
 Route::get('adminteam/login', 'App\Http\Controllers\Adminteam\Login_Controller@index')->name('adminteam.login'); 
 Route::get('adminteam/lupa-password', 'App\Http\Controllers\Adminteam\Login_Controller@lupa_password')->name('adminteam.lupa_password');
@@ -66,6 +70,14 @@ Route::post('adminteam/selesaia/proses-tambah', 'App\Http\Controllers\adminteam\
 Route::post('/selesaia/delete/{id}', [Shiftselesaia::class, 'delete'])->name('selesai.delete');
 Route::get('/selesaia/cetak/{id}', [Shiftselesaia::class, 'cetak'])->name('selesai.cetak');
 
+// dealing admin
+
+Route::get('adminteam/dealingadmin', 'App\Http\Controllers\adminteam\DealingadminController@index')->name('dealingadmin.index');
+Route::get('adminteam/dealingadmin/tambah', 'App\Http\Controllers\adminteam\DealingadminController@tambah')->name('dealingadmin.tambah');
+Route::post('adminteam/dealingadmin/proses-tambah', 'App\Http\Controllers\adminteam\DealingadminController@proses_tambah')->name('dealingadmin.proses_tambah');
+Route::post('/dealingadmin/delete/{id}', [DealingadminController::class, 'delete'])->name('dealingadmin.delete');
+Route::get('/dealingadmin/cetak/{id}', [DealingadminController::class, 'cetak'])->name('dealingadmin.cetak');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -97,3 +109,10 @@ Route::get('absensi/selesai/tambah', 'App\Http\Controllers\Absensi\ShiftselesaiC
 Route::post('absensi/selesai/proses-tambah', 'App\Http\Controllers\Absensi\ShiftselesaiController@proses_tambah')->name('masuk.proses_tambah');
 Route::post('absensi/selesai/delete/{id}', [ShiftselesaiController::class, 'delete'])->name('selesai.delete');
 Route::get('/selesai/cetak/{id}', [ShiftselesaiController::class, 'cetak'])->name('selesai.cetak');
+
+// Dealing
+Route::get('absensi/dealing', 'App\Http\Controllers\Absensi\DealingController@index')->name('dealing.index');
+Route::get('absensi/dealing/tambah', 'App\Http\Controllers\Absensi\DealingController@tambah')->name('dealing.tambah');
+Route::post('absensi/dealing/proses-tambah', 'App\Http\Controllers\Absensi\DealingController@proses_tambah')->name('dealing.proses_tambah');
+Route::post('absensi/dealing/delete/{id}', [DealingController::class, 'delete'])->name('dealing.delete');
+Route::get('/dealing/cetak/{id}', [DealingController::class, 'cetak'])->name('dealing.cetak');

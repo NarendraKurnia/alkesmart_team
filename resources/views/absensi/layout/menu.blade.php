@@ -33,6 +33,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ asset('absensi/dealing') }}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Dealing
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

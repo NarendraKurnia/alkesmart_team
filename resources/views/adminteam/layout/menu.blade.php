@@ -15,7 +15,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{asset('adminvillas/dashboard') }}" class="nav-link">
+            <a href="{{asset('adminteam/dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -68,6 +68,14 @@
               <i class="nav-icon fa fa-fire"></i>
               <p>
                 Data Kegiatan Selesai Marketing
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('dealingadmin.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Data Dealing Marketing
               </p>
             </a>
           </li>
