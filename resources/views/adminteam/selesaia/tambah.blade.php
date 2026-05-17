@@ -1,5 +1,5 @@
 <p class="text-right">
-    <a href="{{ url('absensi/selesai') }}" class="btn btn-outline-info btn-sm">
+    <a href="{{ url('adminteam/selesaia') }}" class="btn btn-outline-info btn-sm">
         <i class="fa fa-arrow-left"></i> Kembali
     </a>
 </p>
@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form action="{{ url('absensi/selesai/proses-tambah') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+        <form action="{{ url('adminteam/selesaia/proses-tambah') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8">
         {{ csrf_field() }}
 
         <div class="form-group row">

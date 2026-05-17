@@ -31,6 +31,14 @@
               </p>
             </a>
           </li>
+           <li class="nav-item">
+            <a href="{{ asset('adminteam/pegawai') }}" class="nav-link">
+              <i class="nav-icon fas fa-user-check"></i>
+              <p>
+                Akses Pegawai
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{ asset('adminteam/marketing') }}" class="nav-link">
               <i class="nav-icon fas fa-user-check"></i>

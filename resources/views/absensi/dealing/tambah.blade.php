@@ -44,6 +44,13 @@
         </div>
 
         <div class="form-group row">
+            <label class="col-md-3 text-right font-weight-bold">Nomor Handphone Petugas <span class="text-danger">*</span></label>
+            <div class="col-md-9">
+                <input type="text" name="no_petugas" class="form-control" placeholder="Masukkan nomor handphone petugas..." value="{{ old('no_petugas') }}" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <label class="col-md-3 text-right font-weight-bold">Tanggal Dealing <span class="text-danger">*</span></label>
             <div class="col-md-9">
                 @php

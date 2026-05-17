@@ -12,11 +12,6 @@
     <div class="col-md-6">
         <form action="{{ url('absensi/dealing') }}" method="get">
             <div class="input-group">
-                <input type="text" name="keywords" class="form-control" placeholder="Cari nama, pegawai, atau petugas..." value="{{ request('keywords') }}">
-                <span class="input-group-append">
-                    <button type="submit" class="btn btn-info btn-flat">
-                        <i class="fa fa-search"></i> Cari
-                    </button>
                     <a href="{{ url('absensi/dealing/tambah') }}" class="btn btn-success">
                         <i class="fa fa-plus"></i> Tambah Baru
                     </a>
@@ -99,6 +94,10 @@
                                         <div class="col-md-6 mb-3">
                                             <label class="text-muted mb-1">Nama Petugas</label>
                                             <p class="font-weight-bold text-uppercase text-secondary">{{ $item->nama_petugas }}</p>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="text-muted mb-1">Nomor Petugas</label>
+                                            <p class="font-weight-bold text-uppercase text-secondary">{{ $item->no_petugas }}</p>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="text-muted mb-1">Tanggal Dealing</label>

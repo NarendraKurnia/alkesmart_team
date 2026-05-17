@@ -12,11 +12,6 @@
     <div class="col-md-6">
         <form action="{{ url('absensi/selesai') }}" method="get">
             <div class="input-group">
-                <input type="text" name="keywords" class="form-control" placeholder="Cari nama atau kegiatan..." value="{{ request('keywords') }}">
-                <span class="input-group-append">
-                    <button type="submit" class="btn btn-info btn-flat">
-                        <i class="fa fa-search"></i> Cari
-                    </button>
                     <a href="{{ url('absensi/selesai/tambah') }}" class="btn btn-success">
                         <i class="fa fa-plus"></i> Tambah Baru
                     </a>

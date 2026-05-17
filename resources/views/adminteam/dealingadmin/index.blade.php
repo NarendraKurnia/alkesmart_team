@@ -65,12 +65,9 @@
                             <i class="fa fa-eye"></i>
                         </button>
 
-                        @php $unit_id = session('unit_id'); @endphp
-                        @if ($unit_id != 1)
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{ "#hapusModal" . $item->id_dealing }}"> 
                             <i class="fa fa-trash"></i>
                         </button>
-                        @endif
 
                         <a href="{{ route('dealing.cetak', $item->id_dealing) }}" target="_blank" class="btn btn-success btn-sm">
                             <i class="fa fa-print"></i>

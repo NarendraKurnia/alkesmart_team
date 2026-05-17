@@ -48,6 +48,13 @@ class Shiftmasuk_Model extends Model
         DB::table('shift_masuk')->insert($data);
     }
 
+    public function edit($data)
+    {
+        \DB::table('shift_masuk') // Ganti 'shift_selesai' sesuai dengan nama tabel database kamu jika berbeda
+            ->where('id_masuk', $data['id_masuk'])
+            ->update($data);
+    }
+
     // Hapus (Tetap)
     public function hapus ($data)
     {

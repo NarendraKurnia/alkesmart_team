@@ -59,7 +59,9 @@
                 </td>
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="{{ "#detailModal" . $item->id_masuk }}">
+                        <a href="{{ asset('adminteam/masuka/edit/'.$item->id_masuk) }}" 
+                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="{{ "#detailModal" . $item->id_masuk }}">
                             <i class="fa fa-eye"></i>
                         </button>
 

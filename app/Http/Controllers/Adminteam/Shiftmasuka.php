@@ -140,6 +140,86 @@ class Shiftmasuka extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $m_shift = new \App\Models\Shiftmasuk_Model();
+        $detail  = $m_shift->detail($id);
+
+        if (!$detail) {
+            return redirect('adminteam/masuka')->with('error', 'Data riwayat masuk tidak ditemukan');
+        }
+
+        $kabupaten = \App\Models\Kabupaten_Model::all();
+        $instansi  = \App\Models\Instansi_Model::all();
+
+        return view('adminteam/layout/wrapper', [
+            'title'     => 'Edit Riwayat Masuk Kunjungan',
+            'detail'    => $detail,
+            'kabupaten' => $kabupaten,
+            'instansi'  => $instansi,
+            'content'   => 'adminteam/masuka/edit'
+        ]);
+    }
+
+    // Proses Simpan Pembaruan Riwayat Masuk Kunjungan
+    public function proses_edit(Request $request)
+    {
+        // 1. Validasi Input Data (termasuk jam dan tanggal yang diizinkan untuk diubah)
+        $request->validate([
+            'id_masuk'          => 'required',
+            'nama'              => 'required|string|max:255',
+            'jam_kehadiran'     => 'required',
+            'tanggal_kunjungan' => 'required|date',
+            'kegiatan'          => 'required|in:kunjungan,byWA',
+            'kabupaten_id'      => 'required|integer',
+            'instansi_id'       => 'required|integer',
+            'foto'              => 'nullable|image|mimes:jpeg,png,jpg|max:8024'
+        ]);
+
+        $id_masuk = $request->id_masuk;
+        $m_shift  = new \App\Models\Shiftmasuk_Model();
+        $detail   = $m_shift->detail($id_masuk);
+
+        if (!$detail) {
+            return redirect('adminteam/masuka')->with('error', 'Gagal memperbarui, data tidak ditemukan');
+        }
+
+        // Ambil nama berkas foto lama sebagai nilai bawaan standar
+        $nama_file = $detail->foto;
+
+        // 2. Jika ada berkas foto baru yang diunggah pengganti foto lama
+        if ($file = $request->file('foto')) {
+            if (!empty($detail->foto)) {
+                $old_path = public_path('admin/upload/absensi/' . $detail->foto);
+                if (file_exists($old_path)) {
+                    @unlink($old_path);
+                }
+            }
+
+            $filename  = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $nama_file = Str::slug($filename, '-') . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('admin/upload/absensi'), $nama_file);
+        }
+
+        // 3. Susun data gabungan yang akan diperbarui ke database
+        $data = [
+            'nama'              => $request->nama,
+            'jam_kehadiran'     => $request->jam_kehadiran,
+            'tanggal_kunjungan' => $request->tanggal_kunjungan,
+            'kegiatan'          => $request->kegiatan,
+            'kabupaten_id'      => $request->kabupaten_id,
+            'instansi_id'       => $request->instansi_id,
+            'foto'              => $nama_file
+        ];
+
+        // 4. Eksekusi pembaruan ke database via Query Builder (menghindari error method model tidak ketemu)
+        \DB::table('shift_masuk') // Ganti dengan nama tabel asli shift masuk di DB Anda jika berbeda
+            ->where('id_masuk', $id_masuk)
+            ->update($data);
+
+        return redirect('adminteam/masuka')->with('sukses', 'Laporan masuk kunjungan berhasil diperbarui');
+    }
+
 
     // Delete
     public function delete($id)

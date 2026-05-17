@@ -10,14 +10,14 @@
 
 <div class="row">
     <div class="col-md-6">
-        <form action="{{ url('absensi/selesai') }}" method="get">
+        <form action="{{ url('adminteam/selesaia') }}" method="get">
             <div class="input-group">
                 <input type="text" name="keywords" class="form-control" placeholder="Cari nama atau kegiatan..." value="{{ request('keywords') }}">
                 <span class="input-group-append">
                     <button type="submit" class="btn btn-info btn-flat">
                         <i class="fa fa-search"></i> Cari
                     </button>
-                    <a href="{{ url('absensi/selesai/tambah') }}" class="btn btn-success">
+                    <a href="{{ url('adminteam/selesaia/tambah') }}" class="btn btn-success">
                         <i class="fa fa-plus"></i> Tambah Baru
                     </a>
                 </span>
@@ -55,16 +55,15 @@
                 <td>{{ \Carbon\Carbon::parse($item->tanggal_update)->format('d-m-Y H:i') }}</td>
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="{{ "#detailModal" . $item->id_selesai }}">
+                        <a href="{{ asset('adminteam/selesaia/edit/'.$item->id_selesai) }}" 
+                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="{{ "#detailModal" . $item->id_selesai }}">
                             <i class="fa fa-eye"></i>
                         </button>
 
-                        @php $unit_id = session('unit_id'); @endphp
-                        @if ($unit_id != 1)
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{ "#hapusModal" . $item->id_selesai }}"> 
                             <i class="fa fa-trash"></i>
                         </button>
-                        @endif
 
                         <a href="{{ route('selesai.cetak', $item->id_selesai) }}" target="_blank" class="btn btn-success btn-sm">
                             <i class="fa fa-print"></i>

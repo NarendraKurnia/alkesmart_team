@@ -46,6 +46,15 @@ class Shiftselesai_Model extends Model
     {
         DB::table('shift_selesai')->insert($data);
     }
+
+    // tambah 
+    public function edit($data)
+    {
+        \DB::table('shift_selesai') // Ganti 'shift_selesai' sesuai dengan nama tabel database kamu jika berbeda
+            ->where('id_selesai', $data['id_selesai'])
+            ->update($data);
+    }
+
     // hapus
     public function hapus ($data)
     {

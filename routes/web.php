@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Adminteam\UserController;
 use App\Http\Controllers\Adminteam\MarketingController;
 use App\Http\Controllers\Adminteam\KabupatenController;
+use App\Http\Controllers\Adminteam\PegawaiController;
 use App\Http\Controllers\Adminteam\InstansiController;
 use App\Http\Controllers\Adminteam\Shiftmasuka;
 use App\Http\Controllers\Adminteam\Shiftselesaia;
@@ -48,6 +49,13 @@ Route::post('adminteam/kabupaten/proses-edit', 'App\Http\Controllers\adminteam\K
 Route::post('adminteam/kabupaten/delete/{id}', [KabupatenController::class, 'delete'])->name('kabupaten.delete');
 
 //kabupaten
+Route::get('adminteam/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
+Route::get('adminteam/pegawai/tambah', 'App\Http\Controllers\adminteam\PegawaiController@tambah');
+Route::post('adminteam/pegawai/proses-tambah', 'App\Http\Controllers\adminteam\PegawaiController@proses_tambah');
+Route::get('adminteam/pegawai/edit/{id}', 'App\Http\Controllers\adminteam\PegawaiController@edit');
+Route::post('adminteam/pegawai/proses-edit', 'App\Http\Controllers\adminteam\PegawaiController@proses_edit');
+Route::post('adminteam/pegawai/delete/{id}', [PegawaiController::class, 'delete'])->name('pegawai.delete');
+//kabupaten
 Route::get('adminteam/instansi', [InstansiController::class, 'index'])->name('instansi.index');
 Route::get('adminteam/instansi/tambah', 'App\Http\Controllers\adminteam\InstansiController@tambah');
 Route::post('adminteam/instansi/proses-tambah', 'App\Http\Controllers\adminteam\InstansiController@proses_tambah');
@@ -60,13 +68,17 @@ Route::get('adminteam/masuka', 'App\Http\Controllers\adminteam\Shiftmasuka@index
 Route::get('adminteam/masuka/tambah', 'App\Http\Controllers\adminteam\Shiftmasuka@tambah')->name('masuka.tambah');
 Route::post('adminteam/masuka/proses-tambah', 'App\Http\Controllers\adminteam\Shiftmasuka@proses_tambah')->name('masuk.proses_tambah');
 Route::post('adminteam/masuka/delete/{id}', [Shiftmasuka::class, 'delete'])->name('masuk.delete');
+Route::get('adminteam/masuka/edit/{id}', 'App\Http\Controllers\adminteam\Shiftmasuka@edit');
+Route::post('adminteam/masuka/proses-edit', [Shiftmasuka::class, 'proses_edit']);
 Route::get('/masuka/cetak/{id}', [Shiftmasuka::class, 'cetak'])->name('masuk.cetak');
 Route::get('adminteam/masuka/ambil-catatan', [Shiftmasuka::class, 'ambil_catatan']);
 
 // Selesai
-Route::get('adminteam/selesaia', 'App\Http\Controllers\adminteam\Shiftselesaia@index')->name('selesaia.index');
+Route::get('adminteam/selesaia', 'App\Http\Controllers\Adminteam\Shiftselesaia@index')->name('selesaia.index');
 Route::get('adminteam/selesaia/tambah', 'App\Http\Controllers\adminteam\Shiftselesaia@tambah')->name('selesaia.tambah');
 Route::post('adminteam/selesaia/proses-tambah', 'App\Http\Controllers\adminteam\Shiftselesaia@proses_tambah')->name('selesaia.proses_tambah');
+Route::get('adminteam/selesaia/edit/{id}', 'App\Http\Controllers\adminteam\Shiftselesaia@edit');
+Route::post('adminteam/selesaia/proses-edit', [Shiftselesaia::class, 'proses_edit']);
 Route::post('/selesaia/delete/{id}', [Shiftselesaia::class, 'delete'])->name('selesai.delete');
 Route::get('/selesaia/cetak/{id}', [Shiftselesaia::class, 'cetak'])->name('selesai.cetak');
 
